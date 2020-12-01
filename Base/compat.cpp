@@ -29,21 +29,21 @@ PlayerInventory &Player::getInventory() const { return *direct_access<PlayerInve
 // Player::Player
 Certificate &Player::getCertificate() const { return *direct_access<class Certificate *>(this, 2816); }
 // Player::setBedRespawnPosition
-BlockPos &Player::getSpawnPosition() const { return direct_access<BlockPos>(this, 7176); }
+BlockPos &Player::getSpawnPosition() const { return direct_access<BlockPos>(this, 7272); }
 // ServerPlayer::ServerPlayer
 NetworkIdentifier const &Player::getNetworkIdentifier() const {
-  return direct_access<class NetworkIdentifier const>(this, 8048);
+  return direct_access<class NetworkIdentifier const>(this, 8088);
 }
 // AddPlayerPacket::AddPlayerPacket
-std::string &Player::getDeviceId() const { return direct_access<std::string>(this, 7872); }
+std::string &Player::getDeviceId() const { return direct_access<std::string>(this, 8008); }
 // ServerNetworkHandler::_createNewPlayer
-std::string &Player::getClientPlatformId() const { return direct_access<std::string>(this, 2744); }
+std::string &Player::getClientPlatformId() const { return direct_access<std::string>(this, 2824); }
 // ServerNetworkHandler::_createNewPlayer
-std::string &Player::getPlatformOfflineId() const { return direct_access<std::string>(this, 2680); }
+std::string &Player::getPlatformOfflineId() const { return direct_access<std::string>(this, 2760); }
 // ServerNetworkHandler::_createNewPlayer
-std::string &Player::getClientPlatformOnlineId() const { return direct_access<std::string>(this, 3528); }
+std::string &Player::getClientPlatformOnlineId() const { return direct_access<std::string>(this, 3624); }
 // RaidBossComponent::_sendBossEvent
-unsigned char Player::getClientSubId() const { return direct_access<unsigned char>(this, 3520); }
+unsigned char Player::getClientSubId() const { return direct_access<unsigned char>(this, 3616); }
 
 #pragma endregion
 
