@@ -186,6 +186,8 @@ public:
   void clearRespawnPosition(void);
   void recheckSpawnPosition(void);
 
+  MCAPI PlayerInventory* getSupplies();
+
   BUILD_ACCESS_COMPAT(PlayerInventory &, Inventory);
   BUILD_ACCESS_COMPAT(class Certificate &, Certificate);
   BUILD_ACCESS_COMPAT(class NetworkIdentifier const &, NetworkIdentifier);

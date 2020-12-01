@@ -45,8 +45,6 @@ public:
   MCAPI std::string const &getPlayerXUID(class mce::UUID const &) const;
   MCAPI std::string const &getPlayerPlatformOnlineId(class mce::UUID const &) const;
   BASEAPI ActorUniqueID getNewUniqueID() const;
-  BASEAPI PacketSender &getPacketSender() const;
-  BASEAPI uint64_t GetServerTick();
   BASEAPI LevelDataWrapper &GetLevelDataWrapper();
 
   MCAPI void setDefaultGameType(enum GameType);

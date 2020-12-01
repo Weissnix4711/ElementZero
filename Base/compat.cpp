@@ -1,8 +1,6 @@
 #include <Actor/Player.h>
 #include <Core/Minecraft.h>
-#include <Container/SimpleContainer.h>
 #include <Command/CommandOutput.h>
-#include <Level/Level.h>
 #include <Item/Item.h>
 #include <Net/NetworkIdentifier.h>
 #include <Net/ServerNetworkHandler.h>
@@ -22,20 +20,14 @@ template <typename Holder> struct ValueHolder {
 
 #pragma region Player
 
-// ServerPlayer::handleActorPickRequestOnServer
-SynchedActorData &Actor::getEntityData() const { return direct_access<SynchedActorData>(this, 320); }
 // Actor::Actor
-SimpleContainer &Actor::getEquipmentContainer() const { return direct_access<SimpleContainer>(this, 1400); }
+SimpleContainer &Actor::getEquipmentContainer() const { return direct_access<SimpleContainer>(this, 1472); }
 // Actor::Actor
-SimpleContainer &Actor::getHandContainer() const { return direct_access<SimpleContainer>(this, 1408); }
-// xref to Actor::transferTickingArea
-class Dimension *Actor::getDimension() const {
-  return direct_access<class Dimension *>(this, 808);
-}
+SimpleContainer &Actor::getHandContainer() const { return direct_access<SimpleContainer>(this, 1480); }
 // Player::getSelectedItem
-PlayerInventory &Player::getInventory() const { return *direct_access<PlayerInventory *>(this, 2928); }
+PlayerInventory &Player::getInventory() const { return *direct_access<PlayerInventory *>(this, 3024); }
 // Player::Player
-Certificate &Player::getCertificate() const { return *direct_access<class Certificate *>(this, 2736); }
+Certificate &Player::getCertificate() const { return *direct_access<class Certificate *>(this, 2816); }
 // Player::setBedRespawnPosition
 BlockPos &Player::getSpawnPosition() const { return direct_access<BlockPos>(this, 7176); }
 // ServerPlayer::ServerPlayer
@@ -65,17 +57,10 @@ std::string &ServerNetworkHandler::GetMotd() { return direct_access<std::string>
 
 void CommandOutput::success() { direct_access<bool>(this, 40) = true; }
 
-uint64_t Level::GetServerTick() {
-  return CallServerClassMethod<ValueHolder<uint64_t>>("?getCurrentServerTick@Level@@UEBA?BUTick@@XZ", this);
-}
-
 ActorUniqueID Level::getNewUniqueID() const {
   auto &r = direct_access<uint64_t>(this, 408);
   return ++r;
 }
-
-// RaidBossComponent::_sendBossEvent
-PacketSender &Level::getPacketSender() const { return *direct_access<PacketSender *>(this, 2096); }
 
 LevelDataWrapper &Level::GetLevelDataWrapper() { return direct_access<LevelDataWrapper>(this, 544); }
 

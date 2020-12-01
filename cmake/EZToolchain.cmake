@@ -39,7 +39,7 @@ target_include_directories (BedrockServer INTERFACE ${EZ_ROOT}/MinecraftHeaders)
 target_link_directories (BedrockServer INTERFACE ${EZ_ROOT}/Lib)
 target_link_libraries (BedrockServer INTERFACE bedrock_server_mod)
 
-if ("${STANDALONE_MODE}" OR ${CMAKE_TOOLCHAIN_FILE} STREQUAL ${CMAKE_CURRENT_LIST_FILE})
+if ("${STANDALONE_MODE}" OR "${CMAKE_TOOLCHAIN_FILE}" STREQUAL "${CMAKE_CURRENT_LIST_FILE}")
     link_directories (${EZ_ROOT}/Dist/Lib)
     function (import_library name location)
         add_library (${name} UNKNOWN IMPORTED)

@@ -346,3 +346,6 @@ Lib
 [Dd]ist
 pack
 compile_commands.json
+
+cmake-build-relwithdebinfo
+.idea
