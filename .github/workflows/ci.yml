@@ -11,6 +11,10 @@ jobs:
 
     runs-on: windows-latest
 
+    env:
+      CC: clang-cl
+      CXX: clang-cl
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -28,9 +32,11 @@ jobs:
         Write-Host ('Installing LLVM')
         Start-Process C:\LLVM.exe -Wait -ArgumentList @('/S', '/D=C:\LLVM')
         Write-Host ('Installed LLVM')
-        echo "CMAKE_C_COMPILER=clang-cl" >> $GITHUB_ENV
-        echo "CMAKE_CXX_COMPILER=clang-cl" >> $GITHUB_ENV
         echo "C:/LLVM/bin" >> $GITHUB_PATH
+    
+    - name: Test Path
+      run: |
+        $Env:Path
 
     - name: Install vcpkg
       uses: lukka/run-vcpkg@v5
