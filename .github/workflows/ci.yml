@@ -32,7 +32,7 @@ jobs:
         Write-Host ('Installing LLVM')
         Start-Process C:\LLVM.exe -Wait -ArgumentList @('/S', '/D=C:\LLVM')
         Write-Host ('Installed LLVM')
-        echo "C:/LLVM/bin" >> $GITHUB_PATH
+        Add-Content -Path $Env:GITHUB_PATH -Value "C:\LLVM\bin"
 
     - name: Install vcpkg
       uses: lukka/run-vcpkg@v5
